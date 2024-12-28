@@ -1,5 +1,6 @@
 ---
-layout: category
+title: "연습용 cpp"
+layout: archive
 
-title: cpp
+
 ---
