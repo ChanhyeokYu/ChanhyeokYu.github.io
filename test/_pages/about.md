@@ -1,6 +1,7 @@
 ---
-permalink: /about/
-title: "About"
-toc: true
-toc_sticky: true
-toc_label: "MYSELF"
+title: "Cpp 기록"
+permalink: /categories/cpp기록/
+layout: category
+author_profile: true
+taxonomy : cpp
+---
