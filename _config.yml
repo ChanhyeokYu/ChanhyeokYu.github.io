@@ -20,7 +20,7 @@ rtl                      : # true, false (default) # turns direction of the page
 title                    : "개인 블로그"
 title_separator          : "-"
 subtitle                 : "개인 저장용 블로그"
-name                     : "방개"
+name                     : "하늘나무"
 description              : "An amazing website."
 url                      : "https://ChanhyeokYu.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
@@ -113,9 +113,9 @@ analytics:
 
 # Site Author
 author:
-  name             : "방개"
+  name             : "하늘나무"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "I am an **amazing** person."
+  bio              : "성장중"
   location         : "Somewhere"
   email            :
   links:
@@ -319,7 +319,8 @@ defaults:
     values:
       layout: single
       author_profile: true
-      read_time: true
+      read_time: false
       comments: # true
       share: true
       related: true
+      toc: true
