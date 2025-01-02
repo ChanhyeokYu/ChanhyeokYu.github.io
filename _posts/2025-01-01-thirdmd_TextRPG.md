@@ -1,10 +1,8 @@
 ---
-title: "json parser 사용 및 매니저를 이용한 관리리"
+title: "json parser 사용 및 매니저를 이용한 관리"
 date: "2025-01-01"
 last_modified_at: "2025-01-01"
 ---
-
-#### nlohmann json을 이용한 json parse
 
 ```cpp
 #include "pch.h"
