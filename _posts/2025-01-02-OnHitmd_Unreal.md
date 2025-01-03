@@ -1,9 +1,18 @@
 ---
 title: "투사체 타격에 대한 처리"
-date: "2025-01-01"
-last_modified_at: "2025-01-01"
+
+categories:
+ - Unreal
+tags:
+ - Unreal
+
+date: 2025-01-01
+last_modified_at: 2025-01-01
+
+toc_sticky: true
 ---
 
+##### Onhit에 대한 처리
 ```cpp
 void ABaseProjectlie::OnHit(UPrimitiveComponent* HitComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit)
 {
@@ -83,4 +92,5 @@ void ABaseProjectlie::OnHit(UPrimitiveComponent* HitComponent, AActor* OtherActo
   }
   ```
 
+<{{ site.url }}{{ site.baseurl }}/second_pretice>
   

@@ -317,10 +317,24 @@ defaults:
       path: ""
       type: posts
     values:
-      layout: single
+      layout: posts
       author_profile: true
       read_time: false
       comments: # true
-      share: true
+      share: false
+      related: true
+      toc: true
+      toc_sticky: true
+
+  # _pages
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: categories
+      author_profile: true
+      read_time: false
+      comments: # true
+      share: false
       related: true
       toc: true
