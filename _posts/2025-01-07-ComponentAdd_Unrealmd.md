@@ -1,5 +1,5 @@
 ---
-title: "가상 함수를 이용한 클래스 분배"
+title: "액터 컴포넌트 분리리"
 
 categories:
  - Cpp
