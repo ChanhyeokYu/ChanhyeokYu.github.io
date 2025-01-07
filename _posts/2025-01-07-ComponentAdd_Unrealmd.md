@@ -2,14 +2,14 @@
 title: "액터 컴포넌트 분리리"
 
 categories:
- - Cpp
+ - Unreal
 
 tags:
- - Cpp
+ - Unreal
 
-date: 2025-01-06
+date: 2025-01-07
 
-last_modified_at: 2025-01-06
+last_modified_at: 2025-01-07
 toc_sticky: true
 ---
 
