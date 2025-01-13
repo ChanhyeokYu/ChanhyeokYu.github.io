@@ -1,5 +1,5 @@
 ---
-title: "액터 컴포넌트 분리리"
+title: "액터 컴포넌트 분리"
 
 categories:
  - Unreal
