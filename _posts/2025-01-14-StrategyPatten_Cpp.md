@@ -2,10 +2,10 @@
 title: "전략 패턴 연습"
 
 categories:
- - Unreal
+ - Cpp
 
 tags:
- - Unreal
+ - Cpp
 
 date: 2025-01-14
 
