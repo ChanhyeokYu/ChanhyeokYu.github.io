@@ -2,6 +2,8 @@
 title: "json parser 사용 및 매니저를 이용한 관리"
 date: "2025-01-01"
 last_modified_at: "2025-01-01"
+permalink: /categories/cpp/
+
 ---
 
 ```cpp
