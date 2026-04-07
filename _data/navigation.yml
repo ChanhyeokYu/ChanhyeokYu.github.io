@@ -7,7 +7,7 @@ main:
    - title: "Home"
      url:  https://chanhyeokyu.github.io/
    - title: "Category"
-     url: /categories/
+     url: /categories/cpp
    - title: "Tags"
      url: /tags/
 #   - title: "Sitemap"
