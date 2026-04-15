@@ -1,8 +1,7 @@
 ---
 title: "함수 포인터를 이용한 간단한 계산"
 date: "2024-12-30"
-last_modified_at: "2024-12-30"
-permalink: /categories/cpp/
+categories: [Cpp]
 ---
 
 
