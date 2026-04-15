@@ -1,8 +1,7 @@
 ---
 title: "가상 함수를 이용한 클래스 분배"
 
-categories:
- - Cpp
+categories: [Cpp]
 
 tags:
  - Cpp
