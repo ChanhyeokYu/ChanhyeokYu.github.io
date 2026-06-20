@@ -1,28 +1,46 @@
-{% assign sum = site.posts | size %}
+{% assign navigation = site.data.navigation[include.nav] %}
+{% assign posts_count = site.posts | size %}
 
-<nav class="nav__list">
-  <input id="ac-toc" name="accordion-toc" type="checkbox" />
-  <label for="ac-toc">{{ site.data.ui-text[site.locale].menu_label }}</label>
-  <ul class="nav__items" id="category_tag_menu">
-      <!--전체 글 수-->
-      <li>
-            📂 <span style="font-family:'Cafe24Oneprettynight';">전체 글 수</span> 
-                <span style="font-family:'Coming Soon';">{{sum}}</span> 
-                <span style="font-family:'Cafe24Oneprettynight';">개</span> 
+{% if navigation %}
+  <nav class="nav__list">
+    <input id="ac-toc" name="accordion-toc" type="checkbox" />
+    <label for="ac-toc">{{ site.data.ui-text[site.locale].menu_label | default: "Menu" }}</label>
+
+    <ul class="nav__items" id="category_tag_menu">
+      <li class="nav__summary">
+        <i class="fas fa-folder-open" aria-hidden="true"></i>
+        <span>전체 글 수 {{ posts_count }}개</span>
       </li>
-      <li>
-        <!--span 태그로 카테고리들을 크게 분류 ex) C/C++/C#-->
-        <span class="nav__sub-title">C/C++/C#</span>
-            <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
+
+      {% for section in navigation %}
+        <li class="nav__section">
+          {% if section.title %}
+            <span class="nav__sub-title">{{ section.title }}</span>
+          {% endif %}
+
+          {% if section.children %}
             <ul>
-                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/cpp 주소의 글로 링크 연결-->
-                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
-                {% for category in site.categories %}
-                    {% if category[0] == "Cpp" %}
-                        <li><a href="/categories/cpp/" class="">C ++ ({{category[1].size}})</a></li>
+              {% for child in section.children %}
+                {% assign child_count = "" %}
+                {% if child.category %}
+                  {% assign category_posts = site.categories[child.category] %}
+                  {% assign child_count = category_posts | size %}
+                {% endif %}
+                <li>
+                  <a href="{{ child.url | relative_url }}">
+                    <span>{{ child.title }}</span>
+                    {% if child.category %}
+                      <span class="nav__count">{{ child_count }}</span>
                     {% endif %}
-                {% endfor %}
+                  </a>
+                </li>
+              {% endfor %}
             </ul>
-      </li>
-  </ul>
-</nav>
+          {% elsif section.url %}
+            <a href="{{ section.url | relative_url }}">{{ section.title }}</a>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  </nav>
+{% endif %}

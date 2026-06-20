@@ -5,10 +5,27 @@ main:
 #   - title: "About"
 #     url: https://mmistakes.github.io/minimal-mistakes/about/
    - title: "Home"
-     url:  https://chanhyeokyu.github.io/
+     url: /
    - title: "Category"
-     url: /categories/cpp
+     url: /categories/
    - title: "Tags"
      url: /tags/
 #   - title: "Sitemap"
 #     url: /sitemap/
+
+sidebar:
+  - title: "C/C++/C#"
+    children:
+      - title: "C++"
+        url: /categories/cpp/
+        category: Cpp
+  - title: "Unreal Engine"
+    children:
+      - title: "Unreal"
+        url: /categories/Unreal/
+        category: Unreal
+  - title: "Today Code"
+    children:
+      - title: "todaycode"
+        url: /categories/todaycode/
+        category: todaycode

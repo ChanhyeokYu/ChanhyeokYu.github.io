@@ -1,0 +1,151 @@
+/* ==========================================================================
+   Custom home
+   ========================================================================== */
+
+.layout--home {
+  .masthead {
+    border-bottom-color: mix(#fff, $border-color, 35%);
+  }
+
+  #main {
+    padding-top: 1.5rem;
+  }
+
+  .archive {
+    max-width: 44rem;
+  }
+
+  .archive__subtitle {
+    margin-top: 1.25rem;
+    margin-bottom: 1.75rem;
+    color: $muted-text-color;
+    font-size: $type-size-5;
+    letter-spacing: 0;
+  }
+
+  .list__item {
+    margin-bottom: 1.85rem;
+  }
+
+  .archive__item-title {
+    margin-top: 0;
+    margin-bottom: 0.25rem;
+    font-size: $type-size-4;
+    line-height: 1.25;
+
+    a {
+      color: $link-color;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: $link-color-hover;
+      text-decoration: none;
+    }
+  }
+
+  .archive__item-excerpt {
+    color: mix(#000, $text-color, 10%);
+    font-size: $type-size-6;
+    line-height: 1.55;
+  }
+
+  .page__meta {
+    display: none;
+  }
+
+  .pagination {
+    margin-top: 2rem;
+  }
+
+  .sidebar {
+    color: $muted-text-color;
+  }
+
+  .sidebar .author__name {
+    color: $text-color;
+    font-size: $type-size-4;
+  }
+
+  .author__bio {
+    color: $muted-text-color;
+  }
+
+  .author__urls li {
+    color: $muted-text-color;
+  }
+
+  .nav__summary {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    margin: 1.25rem 0 0.9rem;
+    color: $muted-text-color;
+    font-size: $type-size-6;
+  }
+
+  .nav__section {
+    margin-bottom: 1rem;
+  }
+
+  .nav__items {
+    list-style: none;
+    padding-inline-start: 0;
+  }
+
+  .nav__items ul {
+    margin: 0.45rem 0 0;
+    padding-inline-start: 0;
+    list-style: none;
+  }
+
+  .nav__items a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding: 0.25rem 0;
+    color: $muted-text-color;
+    font-size: $type-size-6;
+    text-decoration: none;
+  }
+
+  .nav__items a:hover {
+    color: $link-color-hover;
+    text-decoration: none;
+  }
+
+  .nav__sub-title {
+    margin-top: 0;
+    color: $text-color;
+    letter-spacing: 0;
+    text-transform: none;
+  }
+
+  .nav__count {
+    color: mix(#fff, $muted-text-color, 10%);
+    font-size: $type-size-7;
+  }
+
+  @include breakpoint($large) {
+    #main {
+      display: grid;
+      grid-template-columns: minmax(13rem, 16rem) minmax(0, 44rem);
+      column-gap: 2.75rem;
+      align-items: start;
+      max-width: 76rem;
+      padding-top: 2rem;
+    }
+
+    .sidebar,
+    .archive {
+      float: none;
+      width: auto;
+      padding-inline-end: 0;
+    }
+
+    .sidebar {
+      opacity: 1;
+    }
+  }
+}
