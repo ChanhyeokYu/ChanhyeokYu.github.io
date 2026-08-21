@@ -29,3 +29,8 @@ sidebar:
       - title: "todaycode"
         url: /categories/todaycode/
         category: todaycode
+  - title: "PixelArt"
+    children:
+      - title: "PixelArt"
+        url: /categories/PixelArt/
+        category: PixelArt
