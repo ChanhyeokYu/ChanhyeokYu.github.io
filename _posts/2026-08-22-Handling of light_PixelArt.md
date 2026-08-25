@@ -20,7 +20,7 @@ toc_sticky: true
 
 
 
-![image-20260822043955018](C:\Users\whd64\AppData\Roaming\Typora\typora-user-images\image-20260822043955018.png)
+![image-20260825101319767](D:\Blog\ChanhyeokYu.github.io\_pages\image-20260825101319767.png)
 
 
 
@@ -29,4 +29,5 @@ toc_sticky: true
 
 
 
-![image-20260822043551078](C:\Users\whd64\AppData\Roaming\Typora\typora-user-images\image-20260822043551078.png)
+![image-20260825101349083](D:\Blog\ChanhyeokYu.github.io\_pages\image-20260825101349083.png)
+
