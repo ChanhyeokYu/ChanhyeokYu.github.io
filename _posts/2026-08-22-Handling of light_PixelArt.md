@@ -20,7 +20,7 @@ toc_sticky: true
 
 
 
-![image-20260825101319767](D:\Blog\ChanhyeokYu.github.io\_pages\image-20260825101319767.png)
+![light-inside-open-01](D:\Blog\ChanhyeokYu.github.io\assets\images\light-inside-open-01.png)
 
 
 
@@ -29,5 +29,4 @@ toc_sticky: true
 
 
 
-![image-20260825101349083](D:\Blog\ChanhyeokYu.github.io\_pages\image-20260825101349083.png)
-
+![light-inside-open-02](D:\Blog\ChanhyeokYu.github.io\assets\images\light-inside-open-02.png)
