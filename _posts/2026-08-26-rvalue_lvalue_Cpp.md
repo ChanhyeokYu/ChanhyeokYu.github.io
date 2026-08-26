@@ -1,5 +1,5 @@
 ---
-title: "json parser 사용 및 매니저를 이용한 관리"
+title: "rvalue 및 lvalue에 대한 생각"
 
 categories:
  - Cpp
