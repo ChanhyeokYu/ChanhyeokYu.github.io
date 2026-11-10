@@ -1,6 +1,59 @@
 ---
-layout: home
-author_profile: true
-sidebar:
-  nav: "sidebar"
+layout: default
+classes: gold-rush-home
 ---
+
+{% assign posts = paginator.posts | default: site.posts %}
+{% assign page_number = paginator.page | default: 1 %}
+{% assign featured_post = posts.first %}
+
+<main id="main" class="gold-rush" lang="ko">
+  <header class="gold-rush__intro">
+    <div>
+      <p class="gold-rush__label">{{ site.subtitle | escape }} / DEV JOURNAL</p>
+      <h1>{{ site.title | escape }}</h1>
+      <p class="gold-rush__subtitle">게임을 만들며 파고든 것들.</p>
+    </div>
+    <a href="#recent-posts">글 목록 ↓</a>
+  </header>
+
+  {% if page_number == 1 and featured_post %}
+    <article class="gold-rush__feature">
+      <div class="gold-rush__story">
+        <p class="gold-rush__label">대표 글{% if featured_post.categories.first %} / {{ featured_post.categories.first | escape }}{% endif %}</p>
+        <h2><a href="{{ featured_post.url | relative_url }}">{{ featured_post.title | escape }}</a></h2>
+        {% assign summary = featured_post.excerpt | markdownify | strip_html | normalize_whitespace | truncate: 125 %}
+        {% if summary != empty %}<p class="gold-rush__summary">{{ summary | escape }}</p>{% endif %}
+        <time datetime="{{ featured_post.date | date_to_xmlschema }}">{{ featured_post.date | date: "%Y.%m.%d" }}</time>
+      </div>
+      <div class="gold-rush__cover" aria-hidden="true">
+        <span>FIELD NOTE</span>
+        <span class="gold-rush__monogram">G <i>◈</i> R</span>
+        <span>GOLD RUSH / DEV JOURNAL</span>
+      </div>
+    </article>
+  {% endif %}
+
+  <section id="recent-posts" class="gold-rush__notes" aria-labelledby="recent-posts-title">
+    <div class="gold-rush__section-heading">
+      <h2 id="recent-posts-title">최근 기록</h2>
+      <span class="gold-rush__label">FIELD NOTES</span>
+    </div>
+    <ul class="gold-rush__list">
+      {% for post in posts %}
+        {% unless page_number == 1 and forloop.first %}
+          <li>
+            <span class="gold-rush__label">{{ post.categories.first | default: "기록" | escape }}</span>
+            <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+            <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y.%m.%d" }}</time>
+          </li>
+        {% endunless %}
+      {% endfor %}
+    </ul>
+    {% include paginator.html %}
+  </section>
+  <div class="gold-rush__signature">
+    <span>{{ site.title | escape }} · {{ site.name | escape }}</span>
+    <span>GOLD RUSH JOURNAL</span>
+  </div>
+</main>

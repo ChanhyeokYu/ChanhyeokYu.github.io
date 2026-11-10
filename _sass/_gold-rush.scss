@@ -1,0 +1,228 @@
+.gold-rush-home {
+  --gr-paper: #f6f3eb;
+  --gr-ink: #25241f;
+  --gr-muted: #615d50;
+  --gr-line: #d8d2c1;
+  --gr-accent: #73500c;
+
+  @media (prefers-color-scheme: dark) {
+    --gr-paper: #171816;
+    --gr-ink: #f2eee3;
+    --gr-muted: #b8b2a3;
+    --gr-line: #45443a;
+    --gr-accent: #dfbc71;
+  }
+
+  background: var(--gr-paper);
+  color: var(--gr-ink);
+
+  .masthead {
+    height: auto;
+    border-color: var(--gr-line);
+  }
+
+  .masthead__inner-wrap {
+    width: 100%;
+    max-width: 68rem;
+    padding: 0.65rem clamp(1rem, 5vw, 3rem);
+  }
+
+  .greedy-nav {
+    background: var(--gr-paper);
+
+    a { color: var(--gr-ink); }
+    a:hover { color: var(--gr-accent); }
+
+    .visible-links a::before { background: var(--gr-accent); }
+    .hidden-links { background: var(--gr-paper); }
+  }
+
+  .navicon,
+  .navicon::before,
+  .navicon::after {
+    background: var(--gr-ink);
+  }
+
+  .page__footer {
+    border-color: var(--gr-line);
+    background: var(--gr-paper);
+    color: var(--gr-muted);
+  }
+}
+
+#main.gold-rush {
+  display: block;
+  width: 100%;
+  max-width: 68rem;
+  padding: 0 clamp(1rem, 5vw, 3rem);
+  font-family: system-ui, "Malgun Gothic", sans-serif;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+
+  h1, h2, p { margin: 0; }
+
+  a { color: var(--gr-ink); }
+  a:hover { color: var(--gr-accent); }
+
+  time {
+    color: var(--gr-muted);
+    font: 0.72rem/1.5 monospace;
+    white-space: nowrap;
+  }
+
+  .pagination a {
+    border-color: var(--gr-line);
+
+    &.disabled { color: var(--gr-muted); }
+
+    &.current {
+      background: var(--gr-ink);
+      color: var(--gr-paper);
+    }
+  }
+}
+
+.gold-rush__intro,
+.gold-rush__section-heading,
+.gold-rush__signature {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+}
+
+.gold-rush__intro {
+  align-items: flex-end;
+  padding-block: clamp(2rem, 6vw, 4rem) clamp(1.5rem, 4vw, 2.75rem);
+
+  h1 {
+    font-size: clamp(3.5rem, 11vw, 6rem);
+    line-height: 1.12;
+    letter-spacing: -0.085em;
+  }
+
+  a {
+    font-size: 0.75rem;
+    text-underline-offset: 0.22em;
+  }
+}
+
+.gold-rush__subtitle { color: var(--gr-muted); }
+
+.gold-rush__label,
+.gold-rush__cover,
+.gold-rush__signature {
+  font: 600 0.68rem/1.5 monospace;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.gold-rush__label { color: var(--gr-accent); }
+
+.gold-rush__feature {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border: 1px solid var(--gr-line);
+}
+
+.gold-rush__story {
+  align-self: center;
+  padding: clamp(1.1rem, 4vw, 2.5rem);
+
+  h2 {
+    padding-block: 0.5rem;
+    font-size: clamp(1.4rem, 4vw, 2.65rem);
+    letter-spacing: -0.055em;
+    line-height: 1.2;
+  }
+
+  h2 a { text-decoration: none; }
+  h2 a:hover { text-decoration: underline; }
+
+  time {
+    display: block;
+    margin-top: 1rem;
+  }
+}
+
+.gold-rush__summary {
+  color: var(--gr-muted);
+  font-size: 0.85rem;
+}
+
+.gold-rush__cover {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 13rem;
+  padding: 1rem;
+  background:
+    radial-gradient(ellipse at 56% 44%, rgba(111, 87, 43, 0.5), transparent 72%),
+    repeating-linear-gradient(135deg, transparent 0 16px, rgba(195, 161, 91, 0.15) 17px, transparent 18px 32px),
+    #21211b;
+  color: #ead5a0;
+}
+
+.gold-rush__monogram {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.15em;
+  font: clamp(2.8rem, 10vw, 6.5rem)/1 Georgia, serif;
+  letter-spacing: 0;
+
+  i { font: 0.28em/1 system-ui, sans-serif; }
+}
+
+.gold-rush__notes {
+  display: flow-root;
+  margin-top: 2rem;
+}
+
+.gold-rush__section-heading {
+  margin-bottom: 0.6rem;
+
+  h2 { font-size: 1.2rem; }
+}
+
+.gold-rush__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  li {
+    display: grid;
+    grid-template-columns: minmax(5rem, 15%) minmax(0, 1fr) auto;
+    align-items: baseline;
+    gap: 0.2rem 0.75rem;
+    padding: 0.7rem 0;
+    border-top: 1px solid var(--gr-line);
+    font-size: 0.85rem;
+  }
+
+  a {
+    font-weight: 650;
+    text-underline-offset: 0.22em;
+  }
+}
+
+.gold-rush__signature {
+  margin-top: 1rem;
+  padding-block: 0.9rem;
+  border-top: 1px solid var(--gr-line);
+  color: var(--gr-muted);
+}
+
+@media (max-width: 38rem) {
+  .gold-rush__feature { grid-template-columns: minmax(0, 1fr); }
+  .gold-rush__cover { min-height: 9rem; }
+
+  .gold-rush__list li {
+    grid-template-columns: minmax(0, 1fr) auto;
+
+    a { grid-column: 1 / -1; }
+    time { grid-column: 2; grid-row: 1; }
+  }
+}

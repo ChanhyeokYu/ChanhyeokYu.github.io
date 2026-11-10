@@ -1,5 +1,6 @@
 ---
 title: "rvalue 및 lvalue에 대한 생각"
+excerpt: "같은 타입의 값도 표현식에 따라 다르게 다뤄집니다. C++의 값 범주를 코드 예제로 살펴봅니다."
 
 categories:
  - Cpp
