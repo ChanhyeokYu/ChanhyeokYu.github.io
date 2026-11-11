@@ -40,12 +40,47 @@ classes: gold-rush-home
     <ul class="gold-rush__list">
       {% for post in site.posts offset:1 limit:4 %}
         <li>
-          <span class="gold-rush__label">{{ post.categories.first | default: "기록" | escape }}</span>
+          <span class="gold-rush__label">{{ post.categories.first | default: "ETC" | escape }}</span>
           <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
           <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y.%m.%d" }}</time>
         </li>
       {% endfor %}
     </ul>
+  </section>
+  <section class="gold-rush__notes" aria-labelledby="topics-title">
+    <div class="gold-rush__section-heading">
+      <h2 id="topics-title">주제별 기록</h2>
+      <span class="gold-rush__label">TOPICS</span>
+    </div>
+    {% assign topic_groups = site.posts | group_by_exp: "post", "post.categories.first | default: 'ETC'" | sort: "name" %}
+    {% assign named_topics = topic_groups | where_exp: "topic", "topic.name != 'ETC'" %}
+    {% assign other_topics = topic_groups | where: "name", "ETC" %}
+    {% assign ordered_topics = named_topics | concat: other_topics %}
+    <div class="gold-rush__topics">
+      {% for topic in ordered_topics %}
+        {% assign topic_posts = topic.items | sort: "date" | reverse %}
+        <details class="gold-rush__topic" open>
+          <summary>
+            <span>{{ topic.name | escape }}</span>
+            <span class="gold-rush__topic-count">{{ topic_posts.size }}개</span>
+          </summary>
+          <ul>
+            {% for post in topic_posts %}
+              <li>
+                <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+                <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y.%m.%d" }}</time>
+              </li>
+            {% endfor %}
+          </ul>
+        </details>
+      {% endfor %}
+      {% unless other_topics.first %}
+        <details class="gold-rush__topic" open>
+          <summary><span>ETC</span><span class="gold-rush__topic-count">0개</span></summary>
+          <p class="gold-rush__summary">아직 기록이 없습니다.</p>
+        </details>
+      {% endunless %}
+    </div>
   </section>
   <div class="gold-rush__signature">
     <span>{{ site.title | escape }} · {{ site.name | escape }}</span>

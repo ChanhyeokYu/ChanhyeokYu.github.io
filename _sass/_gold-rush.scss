@@ -84,6 +84,49 @@
 
 .gold-rush__intro,
 .gold-rush__section-heading,
+.gold-rush__topics {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem 2rem;
+  align-items: start;
+}
+
+.gold-rush__topic {
+  border-top: 1px solid var(--gr-line);
+
+  summary {
+    padding-block: 0.75rem;
+    color: var(--gr-accent);
+    font-size: 0.9rem;
+    font-weight: 650;
+    cursor: pointer;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  li {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 0.25rem 1rem;
+    margin-bottom: 0.65rem;
+    font-size: 0.8rem;
+  }
+
+  a { text-underline-offset: 0.22em; }
+}
+
+.gold-rush__topic-count {
+  margin-inline-start: 0.6rem;
+  color: var(--gr-muted);
+  font: 0.7rem/1.5 monospace;
+}
+
 .gold-rush__signature {
   display: flex;
   flex-wrap: wrap;
@@ -216,6 +259,7 @@
 }
 
 @media (max-width: 38rem) {
+  .gold-rush__topics { grid-template-columns: minmax(0, 1fr); }
   .gold-rush__feature { grid-template-columns: minmax(0, 1fr); }
   .gold-rush__cover { min-height: 9rem; }
 
