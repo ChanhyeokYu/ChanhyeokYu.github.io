@@ -5,6 +5,7 @@
   --gr-muted: #615d50;
   --gr-line: #d8d2c1;
   --gr-accent: #73500c;
+  --gr-nav-surface: #eee9dd;
 
   @media (prefers-color-scheme: dark) {
     --gr-paper: #171816;
@@ -12,6 +13,7 @@
     --gr-muted: #b8b2a3;
     --gr-line: #45443a;
     --gr-accent: #dfbc71;
+    --gr-nav-surface: #20211d;
   }
 
   background: var(--gr-paper);
@@ -154,10 +156,8 @@
   width: 100%;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1rem 2rem;
+  gap: 0.8rem;
   margin-top: 1.5rem;
-  padding-top: 1rem;
-  border-top: 1px solid var(--gr-line);
   font-size: 0.85rem;
 
   > a,
@@ -167,7 +167,15 @@
     align-items: flex-start;
     gap: 0.4rem;
     min-width: 0;
-    padding-block: 0.5rem;
+    padding: clamp(0.9rem, 2vw, 1.3rem);
+    border: 1px solid var(--gr-line);
+    border-radius: 1.15rem;
+    background: var(--gr-nav-surface);
+
+    @supports (corner-shape: squircle) {
+      corner-shape: squircle;
+      border-radius: 1.6rem;
+    }
   }
 
   > :last-child {
@@ -178,6 +186,11 @@
   > a {
     color: var(--gr-ink);
     text-decoration: none;
+  }
+
+  > a:hover,
+  > a:focus-visible {
+    border-color: var(--gr-accent);
   }
 
   > a:hover .gold-rush-post-nav__title {
