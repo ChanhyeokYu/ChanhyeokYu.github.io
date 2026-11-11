@@ -90,7 +90,7 @@
   .toc {
     background: #171816;
     border-color: #45443a;
-    color: #dfbc71;
+    color: #f2eee3;
 
     .nav__title {
       background: #171816;
@@ -99,8 +99,11 @@
     }
 
     .toc__menu a,
+    .toc__menu a:visited,
     .toc__menu a:hover,
+    .toc__menu a:focus,
     .toc__menu a:focus-visible,
+    .toc__menu a:active,
     .toc__menu .active a {
       background: #171816;
       color: #f2eee3;
