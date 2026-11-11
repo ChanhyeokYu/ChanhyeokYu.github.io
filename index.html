@@ -3,9 +3,7 @@ layout: default
 classes: gold-rush-home
 ---
 
-{% assign posts = paginator.posts | default: site.posts %}
-{% assign page_number = paginator.page | default: 1 %}
-{% assign featured_post = posts.first %}
+{% assign featured_post = site.posts.first %}
 
 <main id="main" class="gold-rush" lang="ko">
   <header class="gold-rush__intro">
@@ -17,7 +15,7 @@ classes: gold-rush-home
     <a href="#recent-posts">글 목록 ↓</a>
   </header>
 
-  {% if page_number == 1 and featured_post %}
+  {% if featured_post %}
     <article class="gold-rush__feature">
       <div class="gold-rush__story">
         <p class="gold-rush__label">대표 글{% if featured_post.categories.first %} / {{ featured_post.categories.first | escape }}{% endif %}</p>
@@ -40,17 +38,14 @@ classes: gold-rush-home
       <span class="gold-rush__label">FIELD NOTES</span>
     </div>
     <ul class="gold-rush__list">
-      {% for post in posts %}
-        {% unless page_number == 1 and forloop.first %}
-          <li>
-            <span class="gold-rush__label">{{ post.categories.first | default: "기록" | escape }}</span>
-            <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
-            <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y.%m.%d" }}</time>
-          </li>
-        {% endunless %}
+      {% for post in site.posts offset:1 limit:4 %}
+        <li>
+          <span class="gold-rush__label">{{ post.categories.first | default: "기록" | escape }}</span>
+          <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+          <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y.%m.%d" }}</time>
+        </li>
       {% endfor %}
     </ul>
-    {% include paginator.html %}
   </section>
   <div class="gold-rush__signature">
     <span>{{ site.title | escape }} · {{ site.name | escape }}</span>

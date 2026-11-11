@@ -17,7 +17,9 @@
 </script>
 
 <!-- For all browsers -->
-<link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+{% assign build_timestamp = site.time | date: "%s" %}
+{% assign stylesheet_version = site.github.build_revision | default: build_timestamp %}
+<link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}?v={{ stylesheet_version | url_encode }}">
 <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
 
