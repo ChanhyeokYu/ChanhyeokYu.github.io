@@ -19,6 +19,9 @@
 {% endif %}
 
 {% include analytics.html %}
+{% if page.layout == "single" %}
+  <script src="{{ '/assets/js/related-posts.js' | relative_url }}" defer></script>
+{% endif %}
 {% include /comments-providers/scripts.html %}
 
 {% if site.after_footer_scripts %}

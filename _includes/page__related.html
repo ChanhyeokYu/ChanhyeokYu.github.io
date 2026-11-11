@@ -1,44 +1,41 @@
-{% assign posts = include.posts | where_exp: "post", "post.hidden != true" | sort: "date" %}
-{% assign related_count = 0 %}
-
-{% for post in posts %}
-  {% if post.id == page.id %}
-    {% continue %}
-  {% endif %}
-
-  {% assign has_related_category = false %}
-  {% for category in page.categories %}
-    {% if post.categories contains category %}
-      {% assign has_related_category = true %}
-    {% endif %}
-  {% endfor %}
-
-  {% if has_related_category %}
-    {% assign related_count = related_count | plus: 1 %}
+{% assign topic = page.categories.first | default: "ETC" %}
+{% assign candidates = include.posts | where_exp: "post", "post.hidden != true" | sort: "date" | reverse %}
+{% assign related_posts = "" | split: "," %}
+{% for post in candidates %}
+  {% assign post_topic = post.categories.first | default: "ETC" %}
+  {% if post.id != page.id and post_topic == topic %}
+    {% assign related_posts = related_posts | push: post %}
   {% endif %}
 {% endfor %}
 
-{% if related_count > 0 %}
-  <div class="page__related">
+{% if related_posts.size > 0 %}
+  {% assign tab_count = related_posts.size | plus: 4 | divided_by: 5 %}
+  <section class="page__related gold-rush-related" aria-labelledby="related-title" data-related-posts>
     {% include before-related.html %}
-    <h2 class="page__related-title">같은 주제의 글</h2>
-    <div class="entries-list">
-      {% for post in posts %}
-        {% if post.id == page.id %}
-          {% continue %}
-        {% endif %}
-
-        {% assign has_related_category = false %}
-        {% for category in page.categories %}
-          {% if post.categories contains category %}
-            {% assign has_related_category = true %}
-          {% endif %}
-        {% endfor %}
-
-        {% if has_related_category %}
-          {% include archive-single.html type="list" %}
-        {% endif %}
+    <div class="gold-rush__section-heading">
+      <h2 id="related-title" class="page__related-title">같은 주제의 글</h2>
+      <span class="gold-rush__label">{{ topic | escape }}</span>
+    </div>
+    <div class="gold-rush-related__tabs" role="tablist" aria-label="같은 주제의 글 페이지" hidden>
+      {% for number in (1..tab_count) %}
+        <button type="button" role="tab" id="related-tab-{{ number }}" aria-controls="related-panel-{{ number }}" aria-selected="{% if forloop.first %}true{% else %}false{% endif %}" tabindex="{% if forloop.first %}0{% else %}-1{% endif %}">{{ number }}</button>
       {% endfor %}
     </div>
-  </div>
+    {% for post in related_posts %}
+      {% assign position = forloop.index0 | modulo: 5 %}
+      {% assign panel_number = forloop.index0 | divided_by: 5 | plus: 1 %}
+      {% if position == 0 %}
+        <div id="related-panel-{{ panel_number }}" data-related-panel>
+          <ul class="gold-rush-related__list">
+      {% endif %}
+            <li>
+              <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+              <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y.%m.%d" }}</time>
+            </li>
+      {% if position == 4 or forloop.last %}
+          </ul>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </section>
 {% endif %}
