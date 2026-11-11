@@ -81,16 +81,32 @@
   .sidebar { opacity: 1; }
   .author__name { color: var(--gr-ink); }
 
-  .toc,
-  .author__urls,
-  .toc .nav__title {
+  .author__urls {
     background: var(--gr-paper);
     color: var(--gr-ink);
     border-color: var(--gr-line);
   }
 
-  .toc a { color: var(--gr-muted); }
-  .toc .active a { color: var(--gr-accent); }
+  .toc {
+    background: #171816;
+    border-color: #45443a;
+    color: #dfbc71;
+
+    .nav__title,
+    a,
+    a:hover,
+    a:focus-visible,
+    .active a {
+      background: #171816;
+      color: #dfbc71;
+      border-color: #45443a;
+    }
+
+    .active a {
+      text-decoration: underline;
+      text-underline-offset: 0.2em;
+    }
+  }
 
   .page__content {
     overflow-wrap: anywhere;
