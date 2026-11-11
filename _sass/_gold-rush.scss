@@ -149,6 +149,69 @@
   .pagination--pager.disabled { color: var(--gr-muted); }
 }
 
+.gold-rush-post-nav {
+  clear: both;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem 2rem;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--gr-line);
+  font-size: 0.85rem;
+
+  > a,
+  > div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4rem;
+    min-width: 0;
+    padding-block: 0.5rem;
+  }
+
+  > :last-child {
+    align-items: flex-end;
+    text-align: end;
+  }
+
+  > a {
+    color: var(--gr-ink);
+    text-decoration: none;
+  }
+
+  > a:hover .gold-rush-post-nav__title {
+    color: var(--gr-accent);
+    text-decoration: underline;
+    text-underline-offset: 0.22em;
+  }
+
+  time,
+  .gold-rush-post-nav__empty { color: var(--gr-muted); }
+  time { font: 0.7rem/1.5 monospace; }
+}
+
+.gold-rush-post-nav__label {
+  color: var(--gr-accent);
+  font-size: 0.7rem;
+}
+
+.gold-rush-post-nav__title {
+  font-weight: 650;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 38rem) {
+  .gold-rush-post-nav {
+    grid-template-columns: minmax(0, 1fr);
+
+    > :last-child {
+      align-items: flex-start;
+      text-align: start;
+    }
+  }
+}
+
 .layout--single .gold-rush-related {
   margin-top: 2rem;
   padding-top: 1rem;
