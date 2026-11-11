@@ -92,17 +92,22 @@
     border-color: #45443a;
     color: #dfbc71;
 
-    .nav__title,
-    a,
-    a:hover,
-    a:focus-visible,
-    .active a {
+    .nav__title {
       background: #171816;
       color: #dfbc71;
       border-color: #45443a;
     }
 
-    .active a {
+    .toc__menu a,
+    .toc__menu a:hover,
+    .toc__menu a:focus-visible,
+    .toc__menu .active a {
+      background: #171816;
+      color: #f2eee3;
+      border-color: #45443a;
+    }
+
+    .toc__menu .active a {
       text-decoration: underline;
       text-underline-offset: 0.2em;
     }
@@ -147,6 +152,7 @@
   border-color: var(--gr-line);
 
   .page__related-title {
+    color: var(--gr-accent);
     margin: 0;
     padding: 0;
     border: 0;
@@ -376,7 +382,7 @@
 .gold-rush__section-heading {
   margin-bottom: 0.6rem;
 
-  h2 { font-size: 1.2rem; }
+  h2 { font-size: 1.2rem; color: var(--gr-accent); }
 }
 
 .gold-rush__list {
